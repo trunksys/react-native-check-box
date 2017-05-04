@@ -14,10 +14,17 @@ import {
     Image,
     Text,
     TouchableHighlight
-} from 'react-native';
+} from 'react-native'
 
 
 export default class CheckBox extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isChecked: this.props.isChecked,
+        }
+    }
+
     static propTypes = {
         ...View.propTypes,
         leftText: React.PropTypes.string,
@@ -29,7 +36,7 @@ export default class CheckBox extends Component {
         checkedImage: React.PropTypes.element,
         unCheckedImage: React.PropTypes.element,
         onClick: React.PropTypes.func.isRequired,
-        isChecked: React.PropTypes.bool.isRequired
+        isChecked: React.PropTypes.bool
 
     }
     static defaultProps = {
@@ -43,14 +50,14 @@ export default class CheckBox extends Component {
         if (!this.props.leftText)return null;
         return (
             <Text style={[styles.leftText, this.props.leftTextStyle]}>{this.props.leftText}</Text>
-        );
+        )
     }
     _renderRight() {
         if (this.props.rightTextView)return this.props.rightTextView;
         if (!this.props.rightText)return null;
         return (
             <Text style={[styles.rightText, this.props.rightTextStyle]}>{this.props.rightText}</Text>
-        );
+        )
     }
 
     _renderImage() {
@@ -66,14 +73,18 @@ export default class CheckBox extends Component {
 
         return (
             <Image source={source}/>
-        );
+        )
+    }
+
+    onClick() {
+        this.props.onClick();
     }
 
     render() {
         return (
             <TouchableHighlight
                 style={this.props.style}
-                onPress={this.props.onClick}
+                onPress={()=>this.onClick()}
                 underlayColor='transparent'
             >
                 <View style={styles.container}>
@@ -82,7 +93,7 @@ export default class CheckBox extends Component {
                     {this._renderRight()}
                 </View>
             </TouchableHighlight>
-        );
+        )
     }
 }
 const styles = StyleSheet.create({
@@ -97,4 +108,4 @@ const styles = StyleSheet.create({
         flex: 1,
         marginLeft: 10
     }
-});
+})
