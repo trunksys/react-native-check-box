@@ -36,7 +36,8 @@ export default class CheckBox extends Component {
         checkedImage: React.PropTypes.element,
         unCheckedImage: React.PropTypes.element,
         onClick: React.PropTypes.func.isRequired,
-        isChecked: React.PropTypes.bool
+        isChecked: React.PropTypes.bool,
+        checkBoxColor: React.PropTypes.string,
 
     }
     static defaultProps = {
@@ -72,7 +73,7 @@ export default class CheckBox extends Component {
         var source = this.props.isChecked ? require('./img/ic_check_box.png') : require('./img/ic_check_box_outline_blank.png');
 
         return (
-            <Image source={source}/>
+            <Image source={source} tintColor={this.props.checkBoxColor}/>
         )
     }
 
