@@ -1,6 +1,6 @@
 {
   "name": "react-native-check-box",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Checkbox component for react native, it works on iOS and Android.",
   "main": "index.js",
   "scripts": {
@@ -27,7 +27,8 @@
     "url": "https://github.com/crazycodeboy/react-native-check-box/issues"
   },
   "peerDependencies": {
-    "react-native": ">=0.20.0"
+    "react-native": ">=0.20.0",
+    "prop-types": "^15.6.2"
   },
   "homepage": "https://github.com/crazycodeboy/react-native-check-box#readme"
 }
